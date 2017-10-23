@@ -14,14 +14,14 @@ describe('Comment Box component', () => {
     
   })
 
-  it('has a text area', () =>{
+  it('has a text area', () => {
     const component = renderComponent(CommentBox)
     const textArea = component.find('textarea')
     
     expect(textArea).to.exist;
   })
 
-  it('has a button', () =>{
+  it('has a button', () => {
     const component = renderComponent(CommentBox)
     const button = component.find('button')
 
