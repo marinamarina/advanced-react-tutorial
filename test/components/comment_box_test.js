@@ -1,4 +1,4 @@
-import {renderComponent, expect} from '../test_helper'
+import {renderComponent, expect, simulate} from '../test_helper'
 import CommentBox from '../../src/components/comment_box'
 
 describe('Comment Box component', () => {
@@ -26,5 +26,24 @@ describe('Comment Box component', () => {
     const button = component.find('button')
 
     expect(button).to.exist
+  })
+
+  describe('Inputing some text', () => {
+    //simulate an event, coming from helpers
+    beforeEach(() => {
+      component.find('textarea').simulate('change', 'new comment')
+    })
+
+    it('shows that text in the textarea', () => {
+     const textArea = component.find('textarea')
+     expect(textArea).to.have.value('new comment')
+    })
+
+    it('once submitted, clears the input', () => {
+      component.simulate('submit')
+      const textArea = component.find('textarea')
+      expect(textArea).to.have.value('')
+    })
+
   })
 })
