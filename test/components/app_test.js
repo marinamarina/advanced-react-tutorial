@@ -9,9 +9,10 @@ describe('App component', () => {
   })
 
   it('shows comment box', () => {
-    // create an instance of app component
-    const component = renderComponent(App)
     expect(component.find('.comment-box')).to.exist
-  
+  })
+
+  it('shows comment list', () => {
+    expect(component.find('.comment-list')).to.exist
   })
 })
